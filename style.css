@@ -20,14 +20,15 @@
     background-color: aqua;
     height: 90vh;
     width: 100vw;
+    display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    flex-wrap: nowrap;
 }
 
 .sidebar {
     font-size: 1.2rem;
     background-color: rgb(59, 168, 15);
-    width: 20vw;
+    width: 250px;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -41,4 +42,50 @@
     font-size: 1.2rem;
 }
 
+.add-book-btn:hover{
+    cursor: pointer;
+    background-color: greenyellow;
+    color: red;
+}
 
+.book-info{
+    margin: 1rem;
+    width: 15rem;;
+    height: 18rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid black;
+    border-radius: 10px;
+}
+
+.book-info > .read-or-not {
+    background-color: lightblue;
+    border: none;
+    width: 55%;
+    height: 10%;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.book-info > .read-or-not:hover {
+    background-color: #22D3EE;
+}
+
+.book-info > .remove-book {
+    background-color: lightgray;
+    border: none;
+    width: 55%;
+    height: 10%;
+    border-radius:
+     5px;
+}
+.book-info > .remove-book:hover {
+    background-color: gray;
+}
+
+.book-info > p {
+    padding: 1rem;
+}
