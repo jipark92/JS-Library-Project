@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Project</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -15,24 +15,42 @@
         </div>
 
         <div class="library-container">
-
             <div class="sidebar">
-                <p>Title: <input class="book-title" type=""></p>
+                <p>Title: <input class="book-title"></p>
                 <p>Author: <input class="book-author" type=""></p>
                 <p>Total Pages: <input class="book-page" type="number"></p>
                 <p>Read: <input class="book-read-checkbox" type="checkbox"></p>
-                <button class="add-book-btn">Add Book</button>
+                <button class="add-book-btn" type="button">Add Book</button>
+                <p>__________________________</p>
                 <p>Total Books: 0</p>
                 <p>Total Pages: 0</p>
                 <p>Books Read: 0</p>
             </div>
 
             <div class="book-info">
-
+                <p>Title of book: </p>
+                <p>Author: </p>
+                <p>Pages: </p>
+                <button class="read-or-not">Not Read</button>
+                <button class="remove-book">Remove</button>
+            </div>
+            <div class="book-info">
+                <p>Title of book: </p>
+                <p>Author: </p>
+                <p>Pages: </p>
+                <button class="read-or-not">Not Read</button>
+                <button class="remove-book">Remove</button>
+            </div>
+            <div class="book-info">
+                <p>Title of book: </p>
+                <p>Author: </p>
+                <p>Pages: </p>
+                <button class="read-or-not">Not Read</button>
+                <button class="remove-book">Remove</button>
             </div>
 
-
         </div>
+
     </div>
 </body>
 </html>
