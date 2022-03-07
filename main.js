@@ -5,14 +5,34 @@ const bookReadCheckBox = document.querySelector('.book-read-checkbox');
 const addBookBtn= document.querySelector('.add-book-btn');
 const readOrNot = document.querySelector('.read-or-not');
 const removeBookBtn = document.querySelector('remove-book');
-
-const books = [{
+//the objects
+let bookList = [{
     title: "test",
     author: "test",
     page: "test",
     read: false
-}]
+},
+{
+    title: "test",
+    author: "test",
+    page: "test",
+    read: false
+},
+{
+    title: "test",
+    author: "test",
+    page: "test",
+    read: false
+},
+]
 
+//the constructor
+function books() {
+
+};
+books();
+
+//add book to library
 function addBookToLibrary () {
     addBookBtn.addEventListener('click', () => {
         if (!bookTitle.value || !bookAuthor.value || !bookPage.value){
@@ -23,3 +43,19 @@ function addBookToLibrary () {
     })
 };
 addBookToLibrary();
+
+//searches through bookList object/*array*
+function goThroughBooks(){
+    for (let i = 0; i < bookList.length; i++){
+        console.log(bookList[i])
+    }
+}
+goThroughBooks();
+
+//make it start with empty input because it keeps saving previous text
+window.addEventListener('DOMContentLoaded',()=>{
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPage.value = "";
+    //make read checkbox unchecked later
+})
