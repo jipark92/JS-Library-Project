@@ -15,10 +15,19 @@ let bookList = [{
 ]
 
 //the constructor
-function books() {
-
+function bookInfo(title,author,pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    // this.read = read;
+    this.sayEverything = function () {
+        console.log(title);
+        console.log(author);
+        console.log(pages);
+        // console.log(read);
+    }
 };
-books();
+
 
 //add book to library
 function addBookToLibrary () {
@@ -27,16 +36,39 @@ function addBookToLibrary () {
             console.log("no information submitted")
         } else if (bookTitle.value && bookAuthor.value && bookPage.value){
             console.log("information submitted!")
+            let submittedTitle = bookTitle.value;
+            let submittedAuthor = bookAuthor.value;
+            let submittedPage = bookPage.value;
+            
+            console.log(submittedTitle);
+            console.log(submittedAuthor);
+            console.log(submittedPage);
+
+            const books = new bookInfo(`${submittedTitle}`,`${submittedAuthor}`, `${submittedPage}`);
+            books.sayEverything();
         }
     })
 };
-addBookToLibrary();
+addBookToLibrary()
+
+
+
+
+
+
+
+// const newBook = new library('harry', 'jk', '123')
+// newBook.sayEverything();
+
+
+
+
 
 //searches through bookList object/*array*
 function goThroughBooks(){
     for (let i = 0; i < bookList.length; i++){
-        console.log(bookList)//Array(3) [ {…}, {…}, {…} ]
-        console.log(bookList[i]) //Object { title: "test", author: "test", page: "test", read: false }
+        // console.log(bookList)//Array(3) [ {…}, {…}, {…} ]
+        // console.log(bookList[i]) //Object { title: "test", author: "test", page: "test", read: false }
     }
 }
 goThroughBooks();
@@ -48,3 +80,5 @@ window.addEventListener('DOMContentLoaded',()=>{
     bookPage.value = "";
     //make read checkbox unchecked later
 })
+
+
