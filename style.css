@@ -21,8 +21,7 @@
     height: 90vh;
     width: 100vw;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+   
 }
 
 .sidebar {
@@ -33,7 +32,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: flex-start;
     padding-left: 1rem;
 }
 
@@ -49,7 +47,17 @@
     color: red;
 }
 
-.book-info{
+.book-info-container {
+    border: 1px solid black;
+    min-height: 75%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px,500px));
+    grid-template-rows: repeat(3, minmax(250px,500px));
+
+}   
+
+.added-book-info{
     margin: 1rem;
     width: 15rem;;
     height: 18rem;
@@ -62,7 +70,7 @@
     border-radius: 10px;
 }
 
-.book-info > .read-or-not {
+.added-book-info > .read-or-not {
     background-color: lightblue;
     border: none;
     width: 65%;
@@ -71,11 +79,11 @@
     border-radius: 5px;
 }
 
-.book-info > .read-or-not:hover {
+.added-book-info > .read-or-not:hover {
     background-color: #22D3EE;
 }
 
-.book-info > .remove-book {
+.added-book-info > .remove-book {
     background-color: lightgray;
     border: none;
     width: 65%;
@@ -83,10 +91,11 @@
     border-radius: 5px;
     margin: 1rem;
 }
-.book-info > .remove-book:hover {
+.added-book-info > .remove-book:hover {
     background-color: gray;
 }
 
-.book-info > p {
+.added-book-info > p {
     padding: 1rem;
 }
+
