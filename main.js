@@ -12,18 +12,6 @@ let bookList = [{
     page: "test",
     read: false
 },
-{
-    title: "test",
-    author: "test",
-    page: "test",
-    read: false
-},
-{
-    title: "test",
-    author: "test",
-    page: "test",
-    read: false
-},
 ]
 
 //the constructor
@@ -47,7 +35,8 @@ addBookToLibrary();
 //searches through bookList object/*array*
 function goThroughBooks(){
     for (let i = 0; i < bookList.length; i++){
-        console.log(bookList[i])
+        console.log(bookList)//Array(3) [ {…}, {…}, {…} ]
+        console.log(bookList[i]) //Object { title: "test", author: "test", page: "test", read: false }
     }
 }
 goThroughBooks();
