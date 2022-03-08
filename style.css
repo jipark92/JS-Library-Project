@@ -18,17 +18,16 @@
 
 .library-container{
     background-color: aqua;
-    height: 90vh;
+    height: 100%;
     width: 100vw;
     display: flex;
-   
 }
 
 .sidebar {
     font-size: 1.2rem;
     background-color: rgb(59, 168, 15);
     width: 250px;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -48,13 +47,10 @@
 }
 
 .book-info-container {
-    border: 1px solid black;
     min-height: 75%;
     width: 90%;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(250px,500px));
-    grid-template-rows: repeat(3, minmax(250px,500px));
-
+    display: flex;
+    flex-wrap: wrap;
 }   
 
 .added-book-info{
