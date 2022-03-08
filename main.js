@@ -13,15 +13,23 @@ let myLibrary = [];
 function Book(title,author,page) {
     this.title = title;
     this.author = author;
-    this.pages = page;
+    this.page = page;
+
     // this.read = read;
-    this.sayEverything = function () {
-        console.log(title);
-        console.log(author);
-        console.log(page);
-        // console.log(read);
-    }
+    // this.sayEverything = function () {
+    //     console.log(title);
+    //     console.log(author);
+    //     console.log(page);
+    //     // console.log(read);
+    // }
+    // console.log(this.title);
+    // console.log(this.author);
+    // console.log(this.pages);
+    console.log(`${title} by ${author}, ${page} pages, not read yet`);
+    myLibrary.push({title,author,page})
 };
+
+
 
 
 
@@ -41,7 +49,7 @@ function addBookToLibrary () {
             // console.log(submittedPage);
 
             const books = new Book(`${submittedTitle}`,`${submittedAuthor}`, `${submittedPage}`);
-            books.sayEverything();
+            // books.sayEverything();
             // console.log(books.title +' test')
         }
     })
