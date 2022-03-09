@@ -14,16 +14,6 @@ function Book(title,author,page) {
     this.author = author;
     this.page = page;
     // this.read = read;
-    // this.sayEverything = function () {
-    //     console.log(title);
-    //     console.log(author);
-    //     console.log(page);
-    //     // console.log(read);
-    // }
-    // console.log(this.title);
-    // console.log(this.author);
-    // console.log(this.pages);
-    // console.log(`${title} by ${author}, ${page} pages, not read yet`);
     myLibrary.push({title,author,page});
     goThroughBooks(title,author,page);
 };
@@ -38,20 +28,14 @@ function addBookToLibrary () {
             let submittedTitle = bookTitle.value;
             let submittedAuthor = bookAuthor.value;
             let submittedPage = bookPage.value;
-            
-            // console.log(submittedTitle);
-            // console.log(submittedAuthor);
-            // console.log(submittedPage);
 
             const books = new Book(`${submittedTitle}`,`${submittedAuthor}`, `${submittedPage}`);
-            // books.sayEverything();
-            // console.log(books.title +' test')
         }
     })
 };
 addBookToLibrary()
 
-//go through array and add based on the index to html display
+//go through array and add based on the array index to html display
 function goThroughBooks(title,author,page){
     for (let i = 0; i < myLibrary.length; i++){
 
@@ -74,6 +58,11 @@ function goThroughBooks(title,author,page){
             addedBookInfo.appendChild(createPThree);
             createPThree.textContent = page;
 
+            const createPFour = document.createElement('p');
+            createPFour.setAttribute('class', 'read-text');
+            addedBookInfo.appendChild(createPFour);
+            createPFour.textContent = "Read";
+
             const readNotBtn = document.createElement('button');
             readNotBtn.setAttribute('class', 'read-or-not');
             addedBookInfo.appendChild(readNotBtn);
@@ -83,6 +72,22 @@ function goThroughBooks(title,author,page){
             removeBookBtns.setAttribute('class', 'remove-book');
             addedBookInfo.appendChild(removeBookBtns);
             removeBookBtns.textContent = "Remove";
+
+            //toggle for read book or not read book status
+            readNotBtn.addEventListener('click', ()=>{
+                if (createPFour.textContent === "Read"){
+                    createPFour.textContent = "Not Read"
+                } else {
+                    createPFour.textContent = "Read"
+                }
+            });
+            
+            //remove add-added-book and all its children
+            removeBookBtns.addEventListener('click', ()=> {
+                addedBookInfo.remove();
+            });
+
+
 
         // console.log(myLibrary.length)
         // console.log(myLibrary)//Array(3) [ {…}, {…}, {…} ]
