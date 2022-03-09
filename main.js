@@ -8,6 +8,14 @@ const bookInfoContainer = document.querySelector('.book-info-container');
 //the object
 let myLibrary = [];
 
+//make it start with empty input because it keeps saving previous text after refresh
+window.addEventListener('DOMContentLoaded',()=>{
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPage.value = "";
+    //make read checkbox unchecked later
+});
+
 //the constructor
 function Book(title,author,page) {
     this.title = title;
@@ -33,7 +41,7 @@ function addBookToLibrary () {
         }
     })
 };
-addBookToLibrary()
+addBookToLibrary();
 
 //go through array and add based on the array index to html display
 function goThroughBooks(title,author,page){
@@ -77,14 +85,17 @@ function goThroughBooks(title,author,page){
             readNotBtn.addEventListener('click', ()=>{
                 if (createPFour.textContent === "Read"){
                     createPFour.textContent = "Not Read"
+                    readNotBtn.textContent = "Read";
                 } else {
                     createPFour.textContent = "Read"
+                    readNotBtn.textContent = "Not Read";
                 }
             });
             
             //remove add-added-book and all its children
             removeBookBtns.addEventListener('click', ()=> {
                 addedBookInfo.remove();
+                // myLibrary.unshift();
             });
 
 
@@ -95,12 +106,5 @@ function goThroughBooks(title,author,page){
     }
 };
 
-//make it start with empty input because it keeps saving previous text after refresh
-window.addEventListener('DOMContentLoaded',()=>{
-    bookTitle.value = "";
-    bookAuthor.value = "";
-    bookPage.value = "";
-    //make read checkbox unchecked later
-});
 
 
