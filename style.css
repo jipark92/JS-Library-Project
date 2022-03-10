@@ -46,7 +46,7 @@
 .add-book-btn:hover{
     cursor: pointer;
     background-color: #334155;
-    color: red;
+    color: white;
     border: none;
 }
 
