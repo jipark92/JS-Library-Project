@@ -4,6 +4,7 @@ const bookPage = document.querySelector('.book-page');
 const bookReadCheckBox = document.querySelector('.book-read-checkbox');
 const addBookBtn= document.querySelector('.add-book-btn');
 const bookInfoContainer = document.querySelector('.book-info-container');
+const inputs = document.querySelectorAll('input')
 
 //the object in array
 let myLibrary = [];
@@ -15,7 +16,6 @@ function Book(title,author,page,read) {
     this.page = page;
     this.read = read;
     myLibrary.push({title,author,page,read});
-    console.log(myLibrary)
     createHtml(title,author,page,read);
 };
 
@@ -24,9 +24,22 @@ function addBookToLibrary () {
     addBookBtn.addEventListener('click', () => {
         //show error message otherwise submit all input to array/object
         if (!bookTitle.value || !bookAuthor.value || !bookPage.value || !bookReadCheckBox){
-            console.log("no information submitted");
+            inputs.forEach((input) =>{
+                input.style.borderColor = "red"
+                setTimeout(()=> {
+                    input.style.borderColor = ""
+                },1000);
+            });
         } else if (bookTitle.value && bookAuthor.value && bookPage.value && bookReadCheckBox  ){
-            console.log("information submitted!");
+            inputs.forEach((input) =>{
+                input.style.borderColor = "green"
+                setTimeout(()=> {
+                    input.style.borderColor = ""
+                    bookTitle.value = "";
+                    bookAuthor.value = "";
+                    bookPage.value = "";
+                },500);
+            });
             let submittedTitle = bookTitle.value;
             let submittedAuthor = bookAuthor.value;
             let submittedPage = bookPage.value;
@@ -127,11 +140,9 @@ function createHtml(title,author,page){
             for (let i = 0; i < myLibrary.length;i++){
                 if (myLibrary[i].read = false || myLibrary[i].read === "false"){
                     myLibrary[i].read = true;
-                    // console.log(myLibrary);
                 } 
                 else if(myLibrary[i].read = true) {
                     myLibrary[i].read = false;
-                    console.log(myLibrary);
                 }
             }
         })
