@@ -41,8 +41,6 @@ addBookToLibrary();
 //go through array and add based on the array index to html display
 function createHtml(title,author,page){
 
-        
-
         //create added book container
         const addedBookInfo = document.createElement('div');
         addedBookInfo.setAttribute('class', 'added-book-info');
@@ -50,7 +48,7 @@ function createHtml(title,author,page){
 
         //set data attribute
         for (let i = 0; i < myLibrary.length; i++){
-            addedBookInfo.setAttribute("id", myLibrary[i].title)
+            addedBookInfo.setAttribute("id", myLibrary[i].title);
         }
         
         //create title text display
@@ -97,62 +95,50 @@ function createHtml(title,author,page){
         addedBookInfo.appendChild(removeBookBtns);
         removeBookBtns.textContent = "Remove";
 
-        //make the book buttons works
-        function bookButtons(){
+        
             //change read status
             readNotBtn.addEventListener('click', ()=>{
                 if (createPFour.textContent === "Read"){
-                    createPFour.textContent = "Not Read"
+                    createPFour.textContent = "Not Read";
                     readNotBtn.textContent = "Read";
                 } else {
-                    createPFour.textContent = "Read"
-                    readNotBtn.textContent = "Not Read"
+                    createPFour.textContent = "Read";
+                    readNotBtn.textContent = "Not Read";
                 }
             });
 
-            
+        // remove add-added-book and all its children
+        removeBookBtns.addEventListener('click', ()=> {
+            //remove added book container
+            addedBookInfo.remove();
+            //removes object in array
+            // need to make ID and mylibrary.title connect then delete mylibrary object.
+            for (let i = 0; i < myLibrary.length; i++){
+                let index = addedBookInfo.getAttribute("id", myLibrary[i].title)
+                if(myLibrary[i].title === index){
+                    delete myLibrary[i].title;
+                    delete myLibrary[i].author;
+                    delete myLibrary[i].page;
+                    delete myLibrary[i].read;
+                    console.log(myLibrary);
+                }   
+            }
+        });
 
-            // remove add-added-book and all its children
-            removeBookBtns.addEventListener('click', ()=> {
-                //remove added book container
-                addedBookInfo.remove();
-                //removes object in array
-                // need to make ID and mylibrary.title connect then delete mylibrary object.
-                for (let i = 0; i < myLibrary.length; i++){
-                    let wee = addedBookInfo.getAttribute("id", myLibrary[i].title)
-                    console.log(wee);
-
-
-                    if(myLibrary[i].title === wee){
-                        delete myLibrary[i].title;
-                        delete myLibrary[i].author;
-                        delete myLibrary[i].page;
-                        delete myLibrary[i].read;
-
-
+        function toggleRead(){
+            readNotBtn.addEventListener('click', ()=>{
+                for (let i = 0; i <myLibrary.length;i++){
+                    if (myLibrary[i].read = true){
+                        myLibrary[i].read = false;
+                        console.log(myLibrary)
+                    } else if (myLibrary[i].read = false){
+                        myLibrary[i].read = true;
+                        console.log(myLibrary)
                     }
-
-
-                    // let index = myLibrary.findIndex( element => {
-                    //     if (element.title = `${wee}`) {
-                    //       return true;
-                    //     }
-                    // });
-                    // console.log('title is at index: ' + index);
-                    
                 }
-
-
-
-
-
-
-
-
-              
-            });
-        }
-        bookButtons();
+            })
+        };
+        toggleRead();  
 };
 
 //make it start with empty input because it keeps saving previous text after refresh
