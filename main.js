@@ -22,7 +22,7 @@ function Book(title,author,page,read) {
 //add book to library
 function addBookToLibrary () {
     addBookBtn.addEventListener('click', () => {
-        //show error message otherwise submit all input to array/object
+        //show error signal otherwise submit all input to array/object
         if (!bookTitle.value || !bookAuthor.value || !bookPage.value || !bookReadCheckBox){
             inputs.forEach((input) =>{
                 input.style.borderColor = "red"
@@ -35,6 +35,7 @@ function addBookToLibrary () {
                 input.style.borderColor = "green"
                 setTimeout(()=> {
                     input.style.borderColor = ""
+                    bookReadCheckBox.style.borderColor =""
                     bookTitle.value = "";
                     bookAuthor.value = "";
                     bookPage.value = "";
@@ -51,7 +52,7 @@ function addBookToLibrary () {
 addBookToLibrary();
 
 //go through array and add based on the array index to html display
-function createHtml(title,author,page){
+function createHtml(title,author,page,read){
 
     //create added book container
     const addedBookInfo = document.createElement('div');
@@ -156,10 +157,3 @@ window.addEventListener('DOMContentLoaded',()=>{
     bookAuthor.value = "";
     bookPage.value = "";
 });
-
-
-
-
-
-
-
